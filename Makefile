@@ -13,7 +13,7 @@ help:
 init: | install-admin-dependencies install-ecs ## activates the plugin and dumps test-db
 	- cd ../../../ \
 		&& ./psh.phar init \
-		&& php bin/console plugin:install --activate SwagServiceBooking \
+		&& php bin/console plugin:install --activate ServiceBooking \
 		&& ./psh.phar init-test-databases
 
 test: ## runs phpunit
