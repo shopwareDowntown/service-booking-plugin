@@ -1,0 +1,28 @@
+{
+    "name": "swag/service-booking",
+    "authors": [
+        {
+            "name": "shopware AG"
+        }
+    ],
+    "description": "Makes it possible to ",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Swag\\ServiceBooking\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Swag\\ServiceBooking\\Test\\": "tests/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "Swag\\ServiceBooking\\ServiceBooking",
+        "label": {
+            "de-DE": "Service Portal",
+            "en-GB": "Service portal"
+        }
+    }
+}
