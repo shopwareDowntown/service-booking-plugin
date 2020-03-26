@@ -1,5 +1,5 @@
 import Plugin from 'src/plugin-system/plugin.class';
-// import DomAccess from 'src/helper/dom-access.helper';
+import DomAccess from 'src/helper/dom-access.helper';
 
 import moment from 'moment';
 import { Calendar } from '@fullcalendar/core';
@@ -17,7 +17,6 @@ export default class ServiceBookingPlugin extends Plugin {
         themeSystem: 'bootstrap',
         startTime: '8:00',
         endTime: '18:00',
-        weekends: false,
         eventLimit: true, // for all non-TimeGrid views
         defaultView: 'listMonth',
         header: {
@@ -32,15 +31,17 @@ export default class ServiceBookingPlugin extends Plugin {
                 eventLimit: 3, // adjust to 3 only for timeGridWeek/timeGridDay
             },
         },
-        
+        dates: [],
     }
 
     init() {
+        this.config = DomAccess.getDataAttribute(this.el, 'service-booking-options');
+
         const config = {
             ...this.options,
             ...{
                 eventRender: this.eventRender.bind(this),
-                events: this.initialzeEvents,
+                events: this.initialzeEvents.bind(this),
                 validRange: this.validRange,
             },
         }
@@ -51,20 +52,15 @@ export default class ServiceBookingPlugin extends Plugin {
     }
 
     initialzeEvents(info, successCallback) {
-        const events = [];
-
-        for (let i = 0; i < 100; i++) {
-            for (let j = 0; j < 4; j++) {
-                events.push({
-                    groupId: i % 2,
-                    title: (i % 2 ? `Webinar #${i}` : `Buyer Advice #${i}`),
-                    start: moment().add(i + 3, 'days').add(2, 'hours').format(),
-                    end: moment().add(i + 3, 'days').add(4, 'hours').format(),
-                    description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor',
-                    classNames: [(i % 2 ? 'fc-webinar' : 'fc-buyer-advice')],
-                });
-            }
-        }
+        const events = this.config.dates.map((date) => {
+            return {
+                title: (this.firstCharUppercase(this.config.type)),
+                start: moment(date.start).format(),
+                end: moment(date.end).format(),
+                description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor',
+                classNames: [`fc-${this.config.type}`],
+            };
+        });
 
         successCallback(events);
     }
@@ -93,5 +89,9 @@ export default class ServiceBookingPlugin extends Plugin {
             html: true,
             content: this.popoverContent(info),
         });
+    }
+
+    firstCharUppercase(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1)
     }
 }
