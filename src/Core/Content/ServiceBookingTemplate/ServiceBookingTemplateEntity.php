@@ -1,4 +1,9 @@
 <?php declare(strict_types=1);
+/*
+ * (c) shopware AG <info@shopware.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
 
 namespace Swag\ServiceBooking\Core\Content\ServiceBookingTemplate;
 
@@ -11,10 +16,15 @@ class ServiceBookingTemplateEntity extends Entity
 {
     use EntityIdTrait;
 
+    public const WEBINAR_TYPE = 'webinar';
+    public const CONSULTING_TYPE = 'consulting';
+    public const INSTALLATION_TYPE = 'installation';
+    public const DEFAULT_TYPE = 'default';
+
     /**
      * @var string
      */
-    protected $type;
+    protected $type = self::DEFAULT_TYPE;
 
     /**
      * @var ProductEntity
