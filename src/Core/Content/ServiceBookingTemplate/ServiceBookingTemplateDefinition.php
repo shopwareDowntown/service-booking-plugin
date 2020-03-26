@@ -43,7 +43,7 @@ class ServiceBookingTemplateDefinition extends EntityDefinition
             (new StringField('type', 'type'))->addFlags(new Required()),
 
             (new OneToManyAssociationField('dates', ServiceBookingDateDefinition::class, 'template_id'))->addFlags(new CascadeDelete()),
-            (new OneToOneAssociationField('product', 'product_id', 'id', ProductDefinition::class)),
+            (new OneToOneAssociationField('product', 'product_id', 'id', ProductDefinition::class))->addFlags(new CascadeDelete()),
         ]);
     }
 }

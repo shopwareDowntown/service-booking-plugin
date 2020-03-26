@@ -7,5 +7,17 @@
         <service id="Swag\ServiceBooking\Core\Content\Merchant\Storefront\Service\ServiceBookingTemplateCriteriaLoader"
                  decorates="Shopware\Production\Merchants\Content\Merchant\Storefront\Service\MerchantCriteriaLoaderInterface">
         </service>
+
+        <service id="Swag\ServiceBooking\Core\Content\Product\ProductServiceBookingExtension">
+            <tag name="shopware.entity.extension"/>
+        </service>
+
+        <service id="Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\ServiceBookingTemplateDefinition">
+            <tag name="shopware.entity.definition" entity="swag_service_booking_template" />
+        </service>
+
+        <service id="Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\ServiceBookingDate\ServiceBookingDateDefinition">
+            <tag name="shopware.entity.definition" entity="swag_service_booking_date" />
+        </service>
     </services>
 </container>

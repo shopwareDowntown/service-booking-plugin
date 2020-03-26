@@ -23,7 +23,8 @@ class ProductServiceBookingExtension implements EntityExtensionInterface
                 'serviceBookingTemplate',
                 'id',
                 'product_id',
-                ServiceBookingTemplateDefinition::class
+                ServiceBookingTemplateDefinition::class,
+                false
             )
         );
     }
