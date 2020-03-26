@@ -9,16 +9,29 @@
         }
     }
 
-    .fc-today {
+    .fc-today, .fc-list-item-title,  .fc-list-item-time {
         color: #fff;
     }
-    
+
+    .fc-list-item-title {
+        font-weight: 700;
+    }
+
     .fc-webinar {
         background-color: #2ecc71;
         border-color: #2ecc71;
     }
+
     .fc-buyer-advice {
         background-color: #e67e22;
         border-color: #e67e22;
+    }
+
+    .fa-chevron-left::before {
+        content: ' « ';
+    }
+
+    .fa-chevron-right::before {
+        content: ' » ';
     }
 }
