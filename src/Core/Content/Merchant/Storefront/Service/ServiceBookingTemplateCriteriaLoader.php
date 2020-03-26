@@ -20,7 +20,7 @@ class ServiceBookingTemplateCriteriaLoader implements MerchantCriteriaLoaderInte
     public function getMerchantCriteria(Criteria $criteria): Criteria
     {
         $criteria = $this->criteriaLoader->getMerchantCriteria($criteria);
-        $criteria->addAssociation('products.serviceBookingTemplate');
+        $criteria->addAssociation('products.serviceBookingTemplate.dates');
 
         return $criteria;
     }

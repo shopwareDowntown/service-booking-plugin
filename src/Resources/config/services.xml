@@ -19,5 +19,10 @@
         <service id="Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\ServiceBookingDate\ServiceBookingDateDefinition">
             <tag name="shopware.entity.definition" entity="swag_service_booking_date" />
         </service>
+
+        <service id="Swag\ServiceBooking\Core\Content\Product\SalesChannel\SalesChannelProductDefinitionDecorator"
+                 decorates="Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition">
+            <tag name="shopware.sales_channel.entity.definition" entity="product"/>
+        </service>
     </services>
 </container>
