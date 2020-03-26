@@ -4,7 +4,7 @@ namespace Swag\ServiceBooking\Core\Content\ServiceBookingTemplate;
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
-use Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\ServiceBookingDate\DateCollection;
+use Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\ServiceBookingDate\ServiceBookingDateCollection;
 
 class ServiceBookingTemplateEntity extends Entity
 {
@@ -16,7 +16,7 @@ class ServiceBookingTemplateEntity extends Entity
     protected $type;
 
     /**
-     * @var DateCollection|null
+     * @var ServiceBookingDateCollection|null
      */
     protected $dates;
 
@@ -37,17 +37,17 @@ class ServiceBookingTemplateEntity extends Entity
     }
 
     /**
-     * @return DateCollection|null
+     * @return ServiceBookingDateCollection|null
      */
-    public function getDates(): ?DateCollection
+    public function getDates(): ?ServiceBookingDateCollection
     {
         return $this->dates;
     }
 
     /**
-     * @param DateCollection|null $dates
+     * @param ServiceBookingDateCollection|null $dates
      */
-    public function setDates(?DateCollection $dates): void
+    public function setDates(?ServiceBookingDateCollection $dates): void
     {
         $this->dates = $dates;
     }

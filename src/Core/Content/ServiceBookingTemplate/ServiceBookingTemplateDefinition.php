@@ -10,7 +10,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToManyAssociationField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
-use Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\ServiceBookingDate\DateDefinition;
+use Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\ServiceBookingDate\ServiceBookingDateDefinition;
 
 class ServiceBookingTemplateDefinition extends EntityDefinition
 {
@@ -38,7 +38,7 @@ class ServiceBookingTemplateDefinition extends EntityDefinition
 
             (new StringField('type', 'type'))->addFlags(new Required()),
 
-            (new OneToManyAssociationField('dates', DateDefinition::class, 'template_id'))->addFlags(new CascadeDelete()),
+            (new OneToManyAssociationField('dates', ServiceBookingDateDefinition::class, 'template_id'))->addFlags(new CascadeDelete()),
         ]);
     }
 }

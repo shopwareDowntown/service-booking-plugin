@@ -22,7 +22,7 @@ use Shopware\Production\ServiceBooking\ServiceBookingTemplate\Aggregate\Date\Dat
 use Shopware\Production\ServiceBooking\ServiceBookingTemplate\Aggregate\Date\DateEntity;
 use Shopware\Production\ServiceBooking\ServiceBookingTemplate\ServiceBookingTemplateDefinition;
 
-class DateDefinition extends EntityDefinition
+class ServiceBookingDateDefinition extends EntityDefinition
 {
     public const ENTITY_NAME = 'swag_service_booking_date';
 

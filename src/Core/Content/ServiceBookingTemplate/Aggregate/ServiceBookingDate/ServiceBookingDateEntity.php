@@ -6,7 +6,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
 use Shopware\Production\ServiceBooking\ServiceBookingTemplate\ServiceBookingTemplateEntity;
 
-class DateEntity extends Entity
+class ServiceBookingDateEntity extends Entity
 {
     use EntityIdTrait;
 

@@ -5,18 +5,18 @@ namespace Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\Serv
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 
 /**
- * @method void                      add(DateEntity $entity)
- * @method void                      set(string $key, DateEntity $entity)
- * @method DateEntity[]    getIterator()
- * @method DateEntity[]    getElements()
- * @method DateEntity|null get(string $key)
- * @method DateEntity|null first()
- * @method DateEntity|null last()
+ * @method void                      add(ServiceBookingDateEntity $entity)
+ * @method void                      set(string $key, ServiceBookingDateEntity $entity)
+ * @method ServiceBookingDateEntity[]    getIterator()
+ * @method ServiceBookingDateEntity[]    getElements()
+ * @method ServiceBookingDateEntity|null get(string $key)
+ * @method ServiceBookingDateEntity|null first()
+ * @method ServiceBookingDateEntity|null last()
  */
-class DateCollection extends EntityCollection
+class ServiceBookingDateCollection extends EntityCollection
 {
     protected function getExpectedClass(): string
     {
-        return DateEntity::class;
+        return ServiceBookingDateEntity::class;
     }
 }
