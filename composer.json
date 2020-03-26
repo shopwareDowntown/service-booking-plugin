@@ -10,11 +10,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Swag\\ServiceBooking\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
+            "Swag\\ServiceBooking\\": "src/",
             "Swag\\ServiceBooking\\Test\\": "tests/"
         }
     },

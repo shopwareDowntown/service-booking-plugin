@@ -4,7 +4,7 @@ namespace Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\Aggregate\Serv
 
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
-use Shopware\Production\ServiceBooking\ServiceBookingTemplate\ServiceBookingTemplateEntity;
+use Swag\ServiceBooking\Core\Content\ServiceBookingTemplate\ServiceBookingTemplateEntity;
 
 class ServiceBookingDateEntity extends Entity
 {
@@ -13,61 +13,43 @@ class ServiceBookingDateEntity extends Entity
     /**
      * @var \DateTimeInterface
      */
-    protected $startDate;
+    protected $start;
 
     /**
      * @var \DateTimeInterface
      */
-    protected $endDate;
+    protected $end;
 
     /**
      * @var ServiceBookingTemplateEntity
      */
     protected $template;
 
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getStartDate(): \DateTimeInterface
+    public function getStart(): \DateTimeInterface
     {
-        return $this->startDate;
+        return $this->start;
     }
 
-    /**
-     * @param \DateTimeInterface $startDate
-     */
-    public function setStartDate(\DateTimeInterface $startDate): void
+    public function setStart(\DateTimeInterface $start): void
     {
-        $this->startDate = $startDate;
+        $this->start = $start;
     }
 
-    /**
-     * @return \DateTimeInterface
-     */
-    public function getEndDate(): \DateTimeInterface
+    public function getEnd(): \DateTimeInterface
     {
-        return $this->endDate;
+        return $this->end;
     }
 
-    /**
-     * @param \DateTimeInterface $endDate
-     */
-    public function setEndDate(\DateTimeInterface $endDate): void
+    public function setEnd(\DateTimeInterface $end): void
     {
-        $this->endDate = $endDate;
+        $this->end = $end;
     }
 
-    /**
-     * @return ServiceBookingTemplateEntity
-     */
     public function getTemplate(): ServiceBookingTemplateEntity
     {
         return $this->template;
     }
 
-    /**
-     * @param ServiceBookingTemplateEntity $template
-     */
     public function setTemplate(ServiceBookingTemplateEntity $template): void
     {
         $this->template = $template;
