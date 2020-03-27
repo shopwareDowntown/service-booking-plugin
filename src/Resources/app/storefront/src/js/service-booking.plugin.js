@@ -5,6 +5,7 @@ import moment from 'moment';
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import listPlugin from '@fullcalendar/list';
+import timegridPlugin from '@fullcalendar/timegrid';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
 import momentPlugin from '@fullcalendar/moment';
 import deLocale from '@fullcalendar/core/locales/de';
@@ -21,7 +22,7 @@ const formatDate = (date) => {
 export default class ServiceBookingPlugin extends Plugin {
     static options = {
         calendarSettings: {
-            plugins: [dayGridPlugin, listPlugin, bootstrapPlugin, momentPlugin],
+            plugins: [dayGridPlugin, listPlugin, bootstrapPlugin, momentPlugin, timegridPlugin],
             locale: deLocale,
             themeSystem: 'bootstrap',
             startTime: '8:00',
@@ -29,11 +30,9 @@ export default class ServiceBookingPlugin extends Plugin {
             eventLimit: true, // for all non-TimeGrid views
             defaultView: 'listMonth',
             header: {
-                left: 'dayGridMonth',
-                center: 'title',
-                right: 'today prev,next listMonth',
-                buttonIcons: {
-                },
+                left: 'title',
+                center: '',
+                right: 'today prev,next listMonth,dayGridMonth,timeGridWeek',
             },
             views: {
                 dayGrid: {
