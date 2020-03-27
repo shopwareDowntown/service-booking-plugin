@@ -11,6 +11,7 @@
                value="{{ bookingTemplate.id }}">
 
         <input type="hidden"
+               class="service-booking__value"
                name="{{ constant('Swag\\ServiceBooking\\Storefront\\Controller\\ServiceBookingCartController::SERVICE_BOOKING_TEMPLATE_REQUEST_PARAMETER') }}[dateId]"
                value="">
     {% endif %}
@@ -31,4 +32,13 @@
     {% else %}
         {{ parent() }}
     {% endif %}
+{% endblock %}
+
+{% block page_product_detail_buy_container %}
+    <div class="service-booking__container">
+        <strong class="service-booking__title">{{ 'serviceBooking.selectedDate' | trans }}:</strong>
+        <span class="service-booking__placeholder non--selected">{{ 'serviceBooking.emptyDate' | trans }}</span>
+    </div>
+
+    {{ parent() }}
 {% endblock %}
