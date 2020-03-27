@@ -6,6 +6,7 @@
     <services>
         <service id="Swag\ServiceBooking\Core\Content\Merchant\Storefront\Service\ServiceBookingTemplateCriteriaLoader"
                  decorates="Shopware\Production\Merchants\Content\Merchant\Storefront\Service\MerchantCriteriaLoaderInterface">
+            <argument type="service" id="Swag\ServiceBooking\Core\Content\Merchant\Storefront\Service\ServiceBookingTemplateCriteriaLoader.inner"/>
         </service>
 
         <service id="Swag\ServiceBooking\Core\Content\Product\ProductServiceBookingExtension">
