@@ -5,7 +5,9 @@ module.exports = ({ config }) => {
         join(__dirname, '../../', 'node_modules/@fullcalendar')
     );
 
-    console.log(config.resolve);
+    config.resolve.alias['moment'] = resolve(
+        join(__dirname, '../../', 'node_modules/moment')
+    );
 
     return config;
 }
