@@ -50,4 +50,18 @@
     .fa-chevron-right::before {
         content: ' » ';
     }
+
+    .fc-bootstrap .fc-popover.card {
+        background: #fff;
+        border-color: $sw-border-color;
+
+        .fc-header {
+            border-color: $sw-border-color;
+        }
+
+        .fc-title {
+            font-weight: 700;
+            padding: $spacer-sm / 2 $spacer-sm;
+        }
+    }
 }
