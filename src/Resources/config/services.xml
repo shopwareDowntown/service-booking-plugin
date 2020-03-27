@@ -24,5 +24,13 @@
                  decorates="Shopware\Core\Content\Product\SalesChannel\SalesChannelProductDefinition">
             <tag name="shopware.sales_channel.entity.definition" entity="product"/>
         </service>
+
+        <service id="Swag\ServiceBooking\Storefront\Controller\ServiceBookingCartController" public="true">
+            <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
+
+            <call method="setContainer">
+                <argument id="service_container" type="service"/>
+            </call>
+        </service>
     </services>
 </container>
