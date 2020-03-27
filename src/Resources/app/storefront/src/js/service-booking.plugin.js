@@ -13,6 +13,7 @@ import $ from 'jquery';
 // Set the locales for moment
 moment.locale('de');
 
+// Helper method which formats dates
 const formatDate = (date) => {
     return moment(date).format('lll');
 }
@@ -77,7 +78,7 @@ export default class ServiceBookingPlugin extends Plugin {
                 start: moment(date.start).format(),
                 end: moment(date.end).format(),
                 description: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor',
-                classNames: [`fc-${this.config.type}`],
+                classNames: [`fc-${this.config.type}`, `fc-event-indicator-${date.id}`],
             };
         });
 
@@ -147,7 +148,35 @@ export default class ServiceBookingPlugin extends Plugin {
     }
 
     onEventClick(info) {
-        const selectedEvent = info.event;
+        const selectedEvent = info.event;        
+        const allDots = Array.from(info.view.el.querySelectorAll('.fc-event-dot')) || [];
+
+        if (allDots.length) {
+            // List view
+            allDots.forEach((el) => {
+                el.style.background = '#3788d8';
+            });
+    
+            const dotEl = info.el.getElementsByClassName('fc-event-dot')[0];
+            if (dotEl) {
+                dotEl.style.backgroundColor = '#27ae60';
+            }
+        } else {
+            const allEvents = Array.from(info.view.el.querySelectorAll('.fc-event')) || [];
+            allEvents.forEach((el) => {
+                el.classList.remove('is--active');
+            });
+            const el = info.el;
+            const className = Array.from(el.classList).find((name) => {
+                return name.includes('fc-event-indicator-');
+            });
+            const events = Array.from(info.view.el.querySelectorAll(`.${className}`)) || [];
+
+            events.forEach((el) => {
+                el.classList.add('is--active');
+            });
+        }
+    
         this.updateValue(selectedEvent.id);
         this.updateBuyButton();
         this.updatePlaceholder(selectedEvent)
