@@ -15,12 +15,11 @@ class MerchantPageCriteriaListener implements EventSubscriberInterface
         ];
     }
 
-    public function loadMerchant(MerchantPageCriteriaEvent $event): Criteria
+    public function loadMerchant(MerchantPageCriteriaEvent $event): void
     {
         $criteria = $event->getCriteria();
 
         $criteria->addAssociation('products.serviceBookingTemplate.dates');
-
-        return $criteria;
+    
     }
 }
